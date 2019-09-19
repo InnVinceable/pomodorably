@@ -6,7 +6,7 @@
   }
   body {
     font-family: Helvetica, Arial, sans-serif;
-    background-color: rgb(0, 174, 255);
+    background-color: rgb(77, 171, 235);
     color: #F6F5F6;
     width: 100%;
     height: 100%;
@@ -20,7 +20,7 @@
       -webkit-app-region: drag;
   }
 
-  .close-btn {
+  .top-bar-btn {
     cursor: pointer;
     letter-spacing: 2px;
     font-size: 18px;
@@ -37,7 +37,7 @@
     -webkit-app-region: no-drag;
   }
   
-  .close-btn:hover {
+  .top-bar-btn:hover {
     background-color: #F6F5F6;
     color: #F36055;
   }
@@ -80,8 +80,9 @@
   }
   
   .input-group {
+    width: 200px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin: 0 auto 8px;
     font-size: 16px;
@@ -94,6 +95,6 @@
     margin: 0 0.5rem;
     border-radius: 4px;
     border: 0;
+    width: 120px;
     -webkit-app-region: no-drag;
   }
-  

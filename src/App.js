@@ -3,6 +3,7 @@ import Logo from './Components/logo';
 import Timer from './Components/timer';
 import Option from './Components/option';
 import Button from './Components/button';
+import Cog from './Components/cog';
 import { setTimeout } from 'timers';
 
 const ipcRenderer = window.require('electron').ipcRenderer;
@@ -16,7 +17,8 @@ class App extends React.Component {
             workTime: 1500,
             seconds: 1500,
             timerId: false,
-            active: 'workTime'
+            active: 'workTime',
+            prevActive: 'workTime'
         }
 
         this.playStop = this.playStop.bind(this);
@@ -49,11 +51,14 @@ class App extends React.Component {
             
             currentState.seconds = stillActive ? currentState.seconds - 1 : currentState[nextTimer];
             currentState.active = stillActive ? currentState.active : nextTimer;
-
-            if (currentState.active != prevState.active) {
+            
+            console.log(currentState.active, ' ', prevState.active);
+            if (currentState.active != this.state.prevActive) {
                 if (currentState.active === 'breakTime') {
+                    this.setState({prevActive: 'breakTime'});
                     ipcRenderer.send('main-break-notification');
                 } else {
+                    this.setState({prevActive: 'workTime'});
                     ipcRenderer.send('main-work-notification');
                 }
             }
@@ -98,14 +103,15 @@ class App extends React.Component {
             <div>
                 <div className="top-bar">
                     {/* <button onClick={this.closeWindow} className="close-btn">_</button> */}
-                    <button onClick={this.closeWindow} className="close-btn">x</button>
+                    <button className="top-bar-btn"><div className="cog-wrapper"><Cog width="15px" height="15px" /></div></button>
+                    <button onClick={this.closeWindow} className="top-bar-btn">x</button>
                 </div>
                 <div className="app">
                     <Logo />
                     <Timer active={this.state.active} seconds={this.state.seconds} />
                     <Button action={this.playStop}>{buttonString}</Button>
-                    <Option value={this.state.workTime} timer="workTime" updateLength={this.updateLength.bind(this)}>Minutes of work</Option>
-                    <Option value={this.state.breakTime} timer="breakTime" updateLength={this.updateLength.bind(this)}>Minutes of break</Option>
+                    <Option value={this.state.workTime} timer="workTime" updateLength={this.updateLength.bind(this)}>Work</Option>
+                    <Option value={this.state.breakTime} timer="breakTime" updateLength={this.updateLength.bind(this)}>Break</Option>
                 </div>
             </div>
 
