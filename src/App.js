@@ -102,7 +102,6 @@ class App extends React.Component {
         return (
             <div>
                 <div className="top-bar">
-                    {/* <button onClick={this.closeWindow} className="close-btn">_</button> */}
                     <button className="top-bar-btn"><div className="cog-wrapper"><Cog width="15px" height="15px" /></div></button>
                     <button onClick={this.closeWindow} className="top-bar-btn">x</button>
                 </div>
