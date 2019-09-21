@@ -24,9 +24,11 @@
     "webpack-dev-server": "^3.8.0"
   },
   "dependencies": {
+    "@material-ui/core": "^4.4.2",
     "electron": "^6.0.9",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-icons": "^3.7.0",
     "webpack-cli": "^3.3.8"
   }
 }
