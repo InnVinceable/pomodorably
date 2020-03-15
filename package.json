@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-dev": "webpack-dev-server",
     "build": "webpack",
-    "start": "webpack --mode production && electron ."
+    "start": "concurrently \"webpack --mode production --watch\" \"electron .\""
   },
   "author": "Vincent de Gois",
   "license": "ISC",
@@ -17,6 +17,7 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
+    "electron-reload": "^1.5.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "style-loader": "^1.0.0",
@@ -25,6 +26,7 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.4.2",
+    "concurrently": "^4.1.2",
     "electron": "^6.0.9",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",

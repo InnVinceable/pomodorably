@@ -12,7 +12,7 @@ class App extends React.Component {
         super(props);
 
         this.state = {
-            breakTime: 250,
+            breakTime: 300,
             workTime: 1500,
             seconds: 1500,
             timerId: false,
