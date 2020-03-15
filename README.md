@@ -1,5 +1,5 @@
 # pomodorably
-![build](https://github.com/InnVinceable/pomodorably/workflows/Node.js%20CI/badge.svg)
+![build](https://github.com/InnVinceable/pomodorably/workflows/build/badge.svg?branch=master)
 
 A time management productivity tool. Read more about the Pomodoro technique [here](https://en.wikipedia.org/wiki/Pomodoro_Technique)
 
